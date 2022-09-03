@@ -1,21 +1,23 @@
 // Задание 1
-function getArrayParams(...arr) {
-  let arr = [min, max, sum, avg];
-  min = 100;
-	max = -100;
+function getArrayParams(arr) {
+  min = Infinity;
+	max = -Infinity;
 	sum = 0;
 	avg = 0;
 
   for (let i = 0; i < arr.length; i++) {
     if (max < arr[i]) {
-      max = arr[i];
-    } else if (min > arr[i]) {
-      min = arr[i];
-    } else sum += arr[i];
-  }
+			max = arr[i];
+		};
+		if (min > arr[i]) {
+			min = arr[i];
+		};
+		sum += arr[i];
+	}
 
-    avg = sum / arr.length;
-    avg = Number(avg.toFixed(2));  
+
+	avg = sum / arr.length;
+	avg = Number(avg.toFixed(2)); 
 
     return { min: min, max: max, avg: avg }; 
     }
