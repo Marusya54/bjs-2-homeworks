@@ -91,25 +91,6 @@ this.books = books;
         };
     };
 
-    /*findBookBy = function(type, value) {
-        let search = this.books.find(item => item[type] === value) 
-        if (search) {
-            return search;
-        } else {
-            return null;
-        };
-    };
-
-    giveBookByName = function (bookName) {
-
-        let request = this.books.findIndex(item => item.name === bookName);
-
-        if (request > -1) {
-            return this.books.splice(index, 1)[0];
-        } else {
-            return null;
-        };
-    };*/
     findBookBy(type, value) {
         let search = null;
         for (let i = 0; i < this.books.length; i++) {
