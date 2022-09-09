@@ -91,7 +91,7 @@ this.books = books;
         };
     };
 
-    findBookBy = function(type, value) {
+    /*findBookBy = function(type, value) {
         let search = this.books.find(item => item[type] === value) 
         if (search) {
             return search;
@@ -109,7 +109,28 @@ this.books = books;
         } else {
             return null;
         };
-    };
+    };*/
+    findBookBy(type, value) {
+        let search = null;
+        for (let i = 0; i < this.books.length; i++) {
+          if(this.books[i][type] === value) {
+            search = this.books[i];
+          }
+        }
+        return search;
+      }
+
+    giveBookByName(bookName) {
+        let request = null;
+        for(let i in this.books) {
+            if(this.books[i].name === bookName) {
+                request = this.books[i];
+                this.books.splice(this.books[i],1);
+                break;
+            }
+        }
+        return request;
+    }
 };
 
 const library = new Library("Библиотека имени Ленина");
