@@ -38,20 +38,23 @@ upgradedAddThree(1, 2, 3); // вычисляем: 6  (снова вычисля�
 //Задача №2
 
 function debounceDecoratorNew(func, ms) {
+
   let timerId = null;
 
   function wrapper(...args){
+    
     if (timerId === null) {
       func(...args);
   };
-
-    clearTimeout(timerId);
+  
+  clearTimeout(timerId);
     
-      timerId = setTimeout(() => {
-        return func(...args)
-      }, ms)
+    timerId = setTimeout(() => {
+      return func(...args)
+    }, ms);
 
-      timerId = setTimeout(() => func(...args), ms)
+    wrapper.count++;
+    wrapper.allCount++;
     };
 
     return wrapper;
