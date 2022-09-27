@@ -40,25 +40,31 @@ upgradedAddThree(1, 2, 3); // вычисляем: 6  (снова вычисля�
 function debounceDecoratorNew(func, ms) {
 
   let timerId = null;
+  let count;
+  let allCount;
 
   function wrapper(...args){
     
     if (timerId === null) {
       func(...args);
+      
   };
   
   clearTimeout(timerId);
     
     timerId = setTimeout(() => {
-      return func(...args)
+      func(...args)
+      allCount++
+      count += 1;
     }, ms);
-
-    wrapper.count++;
-    wrapper.allCount++;
-    };
+    
+    wrapper.count 
+    wrapper.allCount
+  };
 
     return wrapper;
 };
+
 
 const sendSignal = (signalOrder, delay) => console.log("Сигнал отправлен", signalOrder, delay);
 const upgradedSendSignal = debounceDecoratorNew(sendSignal, 2000);
